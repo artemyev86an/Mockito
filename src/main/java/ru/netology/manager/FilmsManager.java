@@ -14,13 +14,15 @@ public class FilmsManager {
     }
 
     public void add(String film) {
-        String[] tmp = new String[movies.length + 1];
-        for (int i = 0; i < movies.length; i++) {
-            tmp[i] = movies[i];
-        }
-        tmp[tmp.length - 1] = film;
-        movies = tmp;
 
+        String[] tmp = new String[movies.length + 1];
+        if (limit > movies.length) {
+            for (int i = 0; i < movies.length; i++) {
+                tmp[i] = movies[i];
+            }
+            tmp[tmp.length - 1] = film;
+            movies = tmp;
+        }
     }
 
     public String[] findAll() {
@@ -37,7 +39,7 @@ public class FilmsManager {
             ans = new String[movies.length];
         }
         for (int i = 0; i < ans.length; i++) {
-            ans[i] = movies[movies.length - i];
+            ans[i] = movies[movies.length - i - 1];
         }
         return  ans;
     }
