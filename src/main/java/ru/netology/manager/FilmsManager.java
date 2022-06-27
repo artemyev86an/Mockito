@@ -33,7 +33,7 @@ public class FilmsManager {
 
     public String[] findLast() {
         String[] ans;
-        if (limit < movies.length) {
+        if (movies.length > limit) {
             ans = new String[limit];
         } else {
             ans = new String[movies.length];
